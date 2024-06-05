@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/gallery.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Interactive Image Gallery</title>
+  </head>
+  <body>
+    <div class="gallery">
+      <div class="card" onclick="openLightbox(0)">
+        <img src="./images/Fennec Fox India.jpeg" alt="Fennec Fox" />
+        <div class="details">
+          <div class="card-details">
+            <span>FENNEC </span>
+            <span>FOX</span>
+            <p>India</p>
+          </div>
+          <div class="overlay">
+            <span>Know more</span>
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </div>
+        </div>
+      </div>
+      <div class="card" onclick="openLightbox(1)">
+        <img src="./images/Humpback whale.jpeg" alt="Humpback Whale" />
+        <div class="details">
+          <div class="card-details">
+            <span>HUMPBACK</span>
+            <span>WHALE</span>
+            <p>South Africa</p>
+          </div>
+          <div class="overlay">
+            <span>Know more</span>
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </div>
+        </div>
+      </div>
+      <div class="card" onclick="openLightbox(2)">
+        <img src="./images/Common Baboon.jpeg" alt="Common Brown Baboon" />
+        <div class="details">
+          <div class="card-details">
+            <span>COMMON BROWN</span>
+            <span>BABOON</span>
+            <p>South Africa</p>
+          </div>
+          <div class="overlay">
+            <span>Know more</span>
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </div>
+        </div>
+      </div>
+      <div class="card" onclick="openLightbox(3)">
+        <img src="./images/Spotted Deer.jpeg" alt="Spotted Deer" />
+        <div class="details">
+          <div class="card-details">
+            <span>SPOTTED</span>
+            <span>DEER</span>
+            <p>South Africa</p>
+          </div>
+          <div class="overlay">
+            <span>Know more</span>
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- For opening full image -->
+    <div id="lightbox" class="lightbox">
+      <span class="close-btn" onclick="closeLightbox()">&times;</span>
+      <div class="lightbox-content">
+        <img id="lightbox-image" src="" alt="" />
+        <div class="lightbox-nav">
+          <span class="prev">&lt;</span>
+          <span class="next">&gt;</span>
+        </div>
+      </div>
+    </div>
+    <script src="./javascript/gallery.js"></script>
+  </body>
+</html>

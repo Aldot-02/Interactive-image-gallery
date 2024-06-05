@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10%;
+  font-family: "Oswald", sans-serif;
+  overflow: hidden;
+  padding: 0;
+}
+
+.gallery {
+  display: flex;
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  width: 25%;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease-in-out;
+  object-fit: cover;
+  animation: blurOut 0.5s ease-in-out forwards;
+}
+
+.card .details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 40px;
+  color: white;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 1;
+}
+.card-details {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  bottom: 40px;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+.card .details span,
+.card .details p {
+  margin: 0;
+}
+
+.card .details p {
+  color: #ffffffa1;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.card .details span {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 31px;
+  padding: 0;
+}
+.card .details span:nth-child(2) {
+  margin-top: -10px;
+}
+.card .overlay {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  animation: fadeOut 0.5s ease-in-out forwards;
+  z-index: 2;
+}
+.card .overlay span {
+  color: rgba(19, 151, 246, 0.897);
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.card:hover img {
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out;
+  animation: blurIn 0.5s ease-in-out forwards;
+}
+
+.card:hover .details .card-details {
+  transform: translateY(-35px);
+  transition: all 0.5s ease-in-out;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blurIn {
+  0% {
+    transform: scale(1);
+    filter: blur(0) grayscale(100%);
+  }
+  20% {
+    transform: scale(1.05);
+    filter: blur(1px) grayscale(100%);
+  }
+  40% {
+    transform: scale(1.1);
+    filter: blur(2px) grayscale(100%);
+  }
+  60% {
+    transform: scale(1.15);
+    filter: blur(3px) grayscale(100%);
+  }
+  80% {
+    transform: scale(1.18);
+    filter: blur(5px) grayscale(100%);
+  }
+  100% {
+    transform: scale(1.2);
+    filter: blur(6px) grayscale(100%);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes blurOut {
+  0% {
+    transform: scale(1.2);
+    filter: blur(6px);
+  }
+  20% {
+    transform: scale(1.18);
+    filter: blur(5px);
+  }
+  40% {
+    transform: scale(1.15);
+    filter: blur(3px);
+  }
+  60% {
+    transform: scale(1.1);
+    filter: blur(2px);
+  }
+  80% {
+    transform: scale(1.05);
+    filter: blur(1px);
+  }
+  100% {
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 999;
+}
+
+.lightbox-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 4px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lightbox-nav span {
+  cursor: pointer;
+  font-size: 40px;
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .card .details {
+    display: none;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 960px) {
+  .card .details {
+    padding: 10%;
+  }
+
+  .card .details p {
+    font-size: 1.5vw;
+  }
+
+  .card .details span {
+    font-size: 3vw;
+  }
+}
